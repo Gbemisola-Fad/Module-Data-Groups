@@ -11,4 +11,6 @@ function calculateMedian(list) {
   return median;
 }
 
+
 module.exports = calculateMedian;
+
