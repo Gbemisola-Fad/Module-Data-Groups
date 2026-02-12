@@ -6,7 +6,7 @@
 
 const calculateMedian = require("./median.js");
 
-describe("calculateMedian", () => {
+test("calculateMedian", () => {
   [
     { input: [1, 2, 3], expected: 2 },
     { input: [1, 2, 3, 4, 5], expected: 3 },
@@ -31,7 +31,7 @@ describe("calculateMedian", () => {
     const list = [3, 1, 2];
     calculateMedian(list);
     expect(list).toEqual([3, 1, 2]);
-  });
+  })
 
   [ 'not an array', 123, null, undefined, {}, [], ["apple", null, undefined] ].forEach(val =>
     it(`returns null for non-numeric array (${val})`, () => expect(calculateMedian(val)).toBe(null))
@@ -46,6 +46,5 @@ describe("calculateMedian", () => {
     { input: ["banana", 5, 3, "apple", 1, 4, 2], expected: 3 },
   ].forEach(({ input, expected }) =>
     it(`filters out non-numeric values and calculates the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
+  
   );
-});
-
