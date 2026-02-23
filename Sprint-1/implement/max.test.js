@@ -31,7 +31,6 @@ const max = (arr) => {
 
 module.exports = max;
 
-
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
@@ -87,3 +86,4 @@ describe("Max Function", () => {
         expect(max(['a', null, 'b'])).toBeNaN();
     });
 });
+
