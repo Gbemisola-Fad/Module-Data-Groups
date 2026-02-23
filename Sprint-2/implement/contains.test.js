@@ -11,6 +11,15 @@ E.g. contains({a: 1, b: 2}, 'c') // returns false
 as the object doesn't contains a key of 'c'
 */
 
+const contains = (obj, property) => {
+    if (typeof obj !== 'object' || obj === null) {
+        return false; // Invalid input: not an object or is null
+    }
+    return property in obj; // Check if the property exists in the object
+};
+
+module.exports = contains;
+
 // Acceptance criteria:
 
 // Given a contains function
@@ -33,3 +42,31 @@ test.todo("contains on empty object returns false");
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+
+const contains = require("./contains.js");
+
+// Test cases
+describe('contains function', () => {
+    test('contains on empty object returns false', () => {
+        expect(contains({}, 'a')).toBe(false);
+    });
+
+    test('contains with existing property returns true', () => {
+        expect(contains({ a: 1, b: 2 }, 'a')).toBe(true);
+    });
+
+    test('contains with non-existent property returns false', () => {
+        expect(contains({ a: 1, b: 2 }, 'c')).toBe(false);
+    });
+
+    test('contains with an array returns false', () => {
+        expect(contains([], 'length')).toBe(true); // Arrays have length property, but we deal only with objects
+    });
+
+    test('contains with invalid parameters returns false', () => {
+        expect(contains(null, 'a')).toBe(false);
+        expect(contains(42, 'a')).toBe(false);
+        expect(contains("string", 'a')).toBe(false);
+    });
+});
+
