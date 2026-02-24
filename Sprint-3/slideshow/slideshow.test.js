@@ -225,3 +225,4 @@ describe("Level 2 challenge", () => {
     expect(image).toHaveAttribute("src", images[2]);
   });
 });
+
