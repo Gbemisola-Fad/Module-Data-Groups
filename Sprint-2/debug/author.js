@@ -14,3 +14,4 @@ const author = {
 for (const value of author) {
   console.log(value);
 }
+
